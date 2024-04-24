@@ -42,8 +42,8 @@ public class WeatherAndMathUtilsTest {
 	@Test
 		public void testConcerningWeatherAdvice() {
 		// Testing for concerning weather conditions
-			String advice = WeatherAndMathUtils.weatherAdvice(50.0, 4.1); // Concerning wind speed and precipitation
-			Assert.assertEquals("ALL CLEAR", advice); 
+			String advice = WeatherAndMathUtils.weatherAdvice(50.0, 4.0); // Concerning wind speed and precipitation
+			Assert.assertEquals("WARN", advice); 
 		}
 	    
 	 @Test

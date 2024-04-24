@@ -2,60 +2,55 @@ package sit707_week6;
 
 import org.junit.Assert;
 import org.junit.Test;
+import java.util.ArrayList;
 
 public class MoreFunctionTest {
-	
-	
-	@Test
-	public void testSumUpToN() {
-		// Testing sumUpToN() function
-		int result = MoreFunctions.sumUpToN(5); // Sum of numbers from 1 to 5 is 15
-		Assert.assertEquals(15, result);
-	}
-	
-	@Test
-	public void testCountEvenNumbers() {
-		// Testing countEvenNumbers() function
-		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // Array with 5 even numbers
-		int count = MoreFunctions.countEvenNumbers(numbers);
-		Assert.assertEquals(5, count);
-	}
-	
-	@Test
-	public void testSumUpToZero() {
-		// Testing sumUpToN() function with zero
-		int result = MoreFunctions.sumUpToN(0); // Sum of numbers from 1 to 0 should be 0
-		Assert.assertEquals(0, result);
-	}
-	
-	@Test
-	public void testSumUpToNegativeNumber() {
-		// Testing sumUpToN() function with a negative number
-		int result = MoreFunctions.sumUpToN(-5); // Sum of numbers from 1 to -5 should throw an exception
-		Assert.assertEquals(0, result); // Since an exception is thrown, result will be 0
-	}
-	
-	@Test
-	public void testCountEvenNumbersWithNoEvenNumbers() {
-		// Testing countEvenNumbers() function with an array containing no even numbers
-		int[] numbers = {1, 3, 5, 7, 9}; // Array with no even numbers
-		int count = MoreFunctions.countEvenNumbers(numbers);
-		Assert.assertEquals(0, count);
-	}
-	
-	@Test
-	public void testCountEvenNumbersWithAllEvenNumbers() {
-		// Testing countEvenNumbers() function with an array containing all even numbers
-		int[] numbers = {2, 4, 6, 8, 10}; // Array with all even numbers
-		int count = MoreFunctions.countEvenNumbers(numbers);
-		Assert.assertEquals(5, count);
-	}
-	
-	@Test
-	public void testCountEvenNumbersWithOneEvenNumber() {
-		// Testing countEvenNumbers() function with an array containing only one even number
-		int[] numbers = {3, 5, 7, 8, 9}; // Array with only one even number
-		int count = MoreFunctions.countEvenNumbers(numbers);
-		Assert.assertEquals(1, count);
-	}
+
+    @Test
+    public void testFindMaxOccurringElement() {
+        // Testing findMaxOccurringElement() function
+        int[] numbers = {1, 2, 3, 4, 2, 2, 4, 4, 5, 5, 5}; // 2 and 4 occur the most (3 times)
+        int result = MoreFunctions.findMaxOccurringElement(numbers);
+        Assert.assertEquals(2, result); // Either 2 or 4 is expected as the result
+    }
+
+    @Test
+    public void testFibonacciSeries() {
+        // Testing fibonacciSeries() function
+        int[] expected = {0, 1, 1, 2, 3, 5, 8}; // Fibonacci series up to 8
+        int[] result = MoreFunctions.fibonacciSeries(7); // Generate Fibonacci series up to 8
+        Assert.assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testIsPalindrome() {
+        // Testing isPalindrome() function
+        String palindrome = "level";
+        String nonPalindrome = "hello";
+        Assert.assertTrue(MoreFunctions.isPalindrome(palindrome)); // "level" is a palindrome
+        Assert.assertFalse(MoreFunctions.isPalindrome(nonPalindrome)); // "hello" is not a palindrome
+    }
+    
+    @Test
+    public void testFindMaxOccurringElementWithAllUniqueElements() {
+        // Testing findMaxOccurringElement() function with an array containing all unique elements
+        int[] numbers = {1, 2, 3, 4, 5}; // All elements are unique
+        int result = MoreFunctions.findMaxOccurringElement(numbers);
+        Assert.assertEquals(1, result); // Any element can be considered the maximum occurring element
+    }
+
+    @Test
+    public void testFibonacciSeriesWithZero() {
+        // Testing fibonacciSeries() function with zero
+        int[] expected = {}; // Empty Fibonacci series for n = 0
+        int[] result = MoreFunctions.fibonacciSeries(0); // Generate Fibonacci series up to 0
+        Assert.assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testIsPalindromeWithEmptyString() {
+        // Testing isPalindrome() function with an empty string
+        String emptyString = "";
+        Assert.assertTrue(MoreFunctions.isPalindrome(emptyString)); // An empty string is a palindrome
+    }
 }
